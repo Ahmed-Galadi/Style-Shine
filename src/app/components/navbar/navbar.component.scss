@@ -1,0 +1,133 @@
+// imports
+@import url("https://fonts.googleapis.com/css2?family=Fuggles&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+// variables
+$grid: 100% / 12;
+$brandWidth: $grid * 2;
+$buttons1Width: $grid * 3;
+$inputWidth: $grid * 4;
+$buttons2Width: $grid * 3;
+$buttons2grid: 100% / 3;
+
+.container {
+  background: rgb(255, 255, 255);
+  align-items: center;
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: $brandWidth $buttons1Width $inputWidth $buttons2Width;
+  height: 85px;
+  .brand {
+    text-align: center;
+    font-family: fantasy;
+    cursor: pointer;
+    .style {
+      color: #555555;
+      font-family: "Fuggles", cursive;
+      font-size: 50px;
+    }
+    i {
+      background: #fcf600;
+      background: radial-gradient(
+        circle farthest-corner at center center,
+        #fcf600 9%,
+        #f5cf04 29%,
+        #efa71b 49%,
+        #eb7f25 67%,
+        #e8572a 100%
+      );
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 35px;
+    }
+  }
+  .buttons1 {
+    button {
+      padding: 32px 10px 33px 10px;
+      cursor: pointer;
+      border-bottom: 3px solid #ffffff00;
+      font-weight: 900;
+      color: rgb(58, 58, 58);
+      font-family: "Inter", sans-serif;
+    }
+    .men {
+      &:hover {
+        border-bottom: 3px solid #e8572a;
+        transition: all 0.3s 0.1s ease-out;
+      }
+    }
+    .women {
+      &:hover {
+        border-bottom: 3px solid #eb7f25;
+        transition: all 0.3s 0.1s ease-out;
+      }
+    }
+    .kids {
+      &:hover {
+        border-bottom: 3px solid #efa71b;
+        transition: all 0.3s 0.1s ease-out;
+      }
+    }
+    .decorations {
+      &:hover {
+        border-bottom: 3px solid #f5cf04;
+        transition: all 0.3s 0.1s ease-out;
+      }
+    }
+    .beauty {
+      &:hover {
+        border-bottom: 3px solid #fcf600;
+        transition: all 0.3s 0.1s ease-out;
+      }
+    }
+  }
+  .search-input {
+    i {
+      color: rgb(138, 138, 138);
+      position: relative;
+      left: 27px;
+    }
+    .active {
+      color: #e8572a;
+      cursor: pointer;
+      transition: all 0.5s ease-out;
+    }
+    input {
+      border: none;
+      height: 40px;
+      width: 450px;
+      background-color: rgb(240, 240, 240);
+      padding-left: 35px;
+      border-radius: 5px;
+      font-size: 17px;
+      border: 1px solid rgb(240, 240, 240);
+      color: rgb(138, 138, 138);
+      &:focus {
+        outline: none;
+        background-color: rgb(251, 251, 251);
+        border: 1px solid rgb(226, 226, 226);
+      }
+    }
+  }
+  .buttons2 {
+    display: grid;
+    grid-template-columns: $buttons2grid $buttons2grid $buttons2grid;
+    button {
+      height: 50px;
+      border-radius: 10px;
+      cursor: pointer;
+      &:hover {
+        color: #e8572a;
+        transition: all 0.5s ease-in-out;
+      }
+      &:active {
+        background-color: #e8572a;
+        color: rgb(255, 191, 191);
+        transition: all 0.5 ease;
+      }
+      i {
+        margin-right: 10px;
+      }
+    }
+  }
+}

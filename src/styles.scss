@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: rgb(246, 246, 246);
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+li {
+  text-decoration: none;
+}

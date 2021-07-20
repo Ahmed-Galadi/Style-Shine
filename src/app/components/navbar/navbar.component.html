@@ -1,0 +1,26 @@
+<div class="container">
+
+  <span class="brand">
+    <span class="style">Style<i class="fas fa-sun"></i>Shine</span>
+  </span>
+
+  <span class="buttons1">
+    <button class="men">MEN</button>
+    <button class="women">WOMEN</button>
+    <button class="kids">KIDS</button>
+    <button class="decorations">DECORATIONS</button>
+    <button class="beauty">BEAUTY</button>
+  </span>
+
+  <span class="search-input">
+    <i [ngClass]="{active: searchActive}" class="fas fa-search"></i>
+    <input (keyup)="onSearch()" [(ngModel)]='searchInput' type="text" placeholder="Search for products, brands and more...">
+  </span>
+
+  <span class="buttons2">
+    <button><i class="far fa-user"></i><span>Profile</span></button>
+    <button><i class="far fa-heart"></i>Wishlist</button>
+    <button><i class="fas fa-shopping-basket"></i>Bag</button>
+  </span>
+
+</div>
