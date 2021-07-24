@@ -1,7 +1,3 @@
-// imports
-@import url("https://fonts.googleapis.com/css2?family=Fuggles&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
-
 // variables
 $grid: 100% / 12;
 $brandWidth: $grid * 2;
@@ -123,7 +119,7 @@ $buttons2grid: 100% / 3;
       &:active {
         background-color: #e8572a;
         color: rgb(255, 191, 191);
-        transition: all 0.5 ease;
+        transition: all 0.2 ease-in-out;
       }
       i {
         margin-right: 10px;

@@ -1,0 +1,57 @@
+// variables
+$grid: 100% / 2;
+$transition: all 0.5s ease-out;
+
+.footer {
+  background-color: white;
+  h3 {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 25px;
+    padding-top: 30px;
+    color: gray;
+  }
+  .container {
+    box-sizing: border-box;
+    align-items: center;
+    display: grid;
+    grid-template-columns: $grid $grid;
+    text-align: center;
+    div {
+      margin-bottom: 40px;
+      color: #3a3a3a;
+      i {
+        margin-right: 10px;
+        font-size: 35px;
+      }
+      span {
+        font-size: 20px;
+        cursor: pointer;
+      }
+    }
+    .facebook {
+      &:hover {
+        color: #3c73e7;
+        transition: $transition;
+      }
+    }
+    .instagram {
+      &:hover {
+        color: #e9663d;
+        transition: $transition;
+      }
+    }
+    .whatsapp {
+      &:hover {
+        color: #73ec6c;
+        transition: $transition;
+      }
+    }
+    .copyright {
+      &:hover {
+        color: #8f8f8f;
+        transition: $transition;
+      }
+    }
+  }
+}

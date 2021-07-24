@@ -1,0 +1,84 @@
+.container {
+  background-image: url(../../../../assets/images/maxresdefault.jpg);
+  height: 1031px;
+  text-align: center;
+  .content {
+    padding: 200px;
+    height: 1031px;
+    background-color: rgba(128, 128, 128, 0.411);
+    font-size: 30px;
+    h1 {
+      margin-bottom: 10px;
+      color: #e67e07;
+      .brand {
+        text-align: center;
+        font-family: fantasy;
+        cursor: pointer;
+        .style {
+          color: #dedddd;
+          font-family: "Fuggles", cursive;
+          font-size: 150px;
+        }
+        i {
+          background: #fcf600;
+          background: radial-gradient(
+            circle farthest-corner at center center,
+            #fcf600 9%,
+            #f5cf04 29%,
+            #efa71b 49%,
+            #eb7f25 67%,
+            #e8572a 100%
+          );
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-size: 80px;
+          margin: 0 10px;
+        }
+      }
+    }
+    p {
+      font-size: 35px;
+      color: #f1bebe;
+    }
+    .buttons {
+      margin-top: 70px;
+      button {
+        font-size: large;
+        height: 120px;
+        width: 120px;
+        border-radius: 50%;
+      }
+      .men {
+        margin-right: 200px;
+        background-color: #6d6dfd;
+        color: #ceceff;
+        font-family: "Goldman", cursive;
+        border: 10px transparent solid;
+        font-size: 25px;
+        &:hover {
+          border: 25px #ceceffb0 solid;
+          background-color: #ceceffb0;
+          color: #5555ff;
+          box-shadow: 0px 0px 25px 10px #9d9dfd;
+          transition: all 0.8s ease;
+        }
+      }
+      .wemen {
+        margin-left: 200px;
+        background-color: #ff8298;
+        color: #ffd9e0;
+        font-family: "Crafty Girls", cursive;
+        font-weight: 600;
+        border: 10px transparent solid;
+        font-size: 19px;
+        &:hover {
+          border: 25px #ffd9e0c4 solid;
+          background-color: #ffd9e0c4;
+          color: #ff5d7b;
+          box-shadow: 0px 0px 25px 10px #ffbeca;
+          transition: all 0.8s ease;
+        }
+      }
+    }
+  }
+}
