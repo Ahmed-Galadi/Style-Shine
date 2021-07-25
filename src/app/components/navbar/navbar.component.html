@@ -5,11 +5,20 @@
   </span>
 
   <span class="buttons1">
-    <button class="men">MEN</button>
-    <button class="women">WOMEN</button>
-    <button class="kids">KIDS</button>
-    <button class="decorations">DECORATIONS</button>
-    <button class="beauty">BEAUTY</button>
+
+    <button (mouseover)='mouseOnMan()'  class="men">MEN</button>
+    <button (mouseover)='mouseOnWoman()' class="women">WOMEN</button>
+    <button (mouseover)='mouseOnKids()'  class="kids">KIDS</button>
+    <button (mouseover)='mouseOnDecorations()'  class="decorations">DECORATIONS</button>
+    <button (mouseover)='mouseOnBeauty()' class="beauty">BEAUTY</button>
+
+    <ul [hidden]='isHidden' class="shopingList"  (mouseleave)='onMouseOut()'>
+      <span [ngClass]='listClass'>{{ listType }}</span>
+      <li *ngFor='let content of listContent'>
+         {{ content }}
+      </li>
+    </ul>
+
   </span>
 
   <span class="search-input">
@@ -22,5 +31,7 @@
     <button><i class="far fa-heart"></i>Wishlist</button>
     <button><i class="fas fa-shopping-basket"></i>Bag</button>
   </span>
+
+
 
 </div>
