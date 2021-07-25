@@ -47,9 +47,10 @@
         height: 120px;
         width: 120px;
         border-radius: 50%;
+        cursor: pointer;
       }
       .men {
-        margin-right: 200px;
+        margin-right: 300px;
         background-color: #6d6dfd;
         color: #ceceff;
         font-family: "Goldman", cursive;
@@ -64,7 +65,7 @@
         }
       }
       .wemen {
-        margin-left: 200px;
+        margin-left: 300px;
         background-color: #ff8298;
         color: #ffd9e0;
         font-family: "Crafty Girls", cursive;
@@ -76,6 +77,55 @@
           background-color: #ffd9e0c4;
           color: #ff5d7b;
           box-shadow: 0px 0px 25px 10px #ffbeca;
+          transition: all 0.8s ease;
+        }
+      }
+      .middle {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        margin-left: 215px;
+        .kids {
+          margin-right: 200px;
+          background-color: #ffd258;
+          color: #fffddc;
+          font-family: "Butterfly Kids", cursive;
+          border: 10px transparent solid;
+          font-size: 35px;
+          &:hover {
+            border: 25px #feffceb0 solid;
+            background-color: #fffeceb0;
+            color: #ffc31f;
+            box-shadow: 0px 0px 25px 10px #fff455;
+            transition: all 0.8s ease;
+          }
+        }
+      }
+      .decorations {
+        margin-right: 300px;
+        background-color: #50ff93;
+        color: #e6ffef;
+        font-family: "Lobster Two", cursive;
+        border: 7px transparent solid;
+        &:hover {
+          border: 25px #a4ffc7ca solid;
+          background-color: #81ffb1bb;
+          color: #15ff6f;
+          box-shadow: 0px 0px 25px 10px #50ff93;
+          transition: all 0.8s ease;
+        }
+      }
+      .beauty {
+        margin-left: 300px;
+        background-color: #ea48ff;
+        color: #f8c5ff;
+        font-family: "Amatic SC", cursive;
+        border: 10px transparent solid;
+        font-size: 30px;
+        &:hover {
+          border: 25px #ea48ffda solid;
+          background-color: #f49dffda;
+          color: #e418ff;
+          box-shadow: 0px 0px 25px 10px #e418ff;
           transition: all 0.8s ease;
         }
       }
