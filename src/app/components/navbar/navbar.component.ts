@@ -8,13 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
 
-    men = {type: "Men", class: "men-title", content: ["T-shitrs", "Sweatshirts", "Shorts&Pants", "Coats&Jackets", "Hats"] };
+    men = {type: "Men", class: "men-title", content: ["T-shitrs", "Sweatshirts", "Shorts&Pants", "Coats&Jackets", "Hats"]};
     wemen = {type: "Women", class: "wemen-title", content: ["T-shirt" , "Blouse&Shirts", "Tanks&Camis", "Outerwear&Coats"] };
     kids = {type: "Kids", class: "kids-title", content: ["Baby boy", "Baby girl"] };
+    decorations = {type: "Decorations", class: "decorations-title", content: ["Party decorations", "Home decorations"] };
+    beauty = {type: "Beauty", class: "beauty-title", content: ["Bracelats", "Earrings", "Rings", "Chains"] };
 
     listType: string = '';
     listClass: string = '';
     listContent: string[] = [];
+    listIcons: string[] = []
     isHidden = true;
 
   searchInput = '';
@@ -53,9 +56,19 @@ export class NavbarComponent implements OnInit {
     this.isHidden= false;
   }
 
-  mouseOnDecorations(){}
+  mouseOnDecorations(){
+    this.listType = this.decorations.type;
+    this.listClass= this.decorations.class;
+    this.listContent= this.decorations.content;
+    this.isHidden= false;
+  }
 
-  mouseOnBeauty(){}
+  mouseOnBeauty(){
+    this.listType = this.beauty.type;
+    this.listClass= this.beauty.class;
+    this.listContent= this.beauty.content;
+    this.isHidden= false;
+  }
 
 
   onSearch() {
