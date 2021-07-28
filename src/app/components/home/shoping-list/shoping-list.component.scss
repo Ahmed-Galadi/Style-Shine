@@ -1,0 +1,61 @@
+// variables
+$grid: 100% / 12;
+$listWidth: $grid * 2;
+
+section {
+  margin-top: 50px;
+  padding-left: 155px;
+  .container {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: $listWidth $listWidth $listWidth $listWidth $listWidth;
+    text-align: center;
+    .products-list {
+      margin: 15px 15px 15px 15px;
+      background-color: white;
+      border-radius: 10px;
+      img {
+        width: 170px;
+        height: 170px;
+        margin: 30px 10px 10px 10px;
+        border-radius: 5px;
+      }
+      div {
+        margin-bottom: 20px;
+      }
+      .price {
+        color: yellowgreen;
+        font-weight: 700;
+        font-size: 20px;
+      }
+      .description {
+        padding: 0px 25px 0px 25px;
+        color: #a9a9a9;
+        font-size: 17px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+      .list-buttons {
+        button {
+          font-size: large;
+          color: #828282;
+          padding: 5px 5px 5px 5px;
+          border-radius: 50%;
+          height: 50px;
+          width: 50px;
+          &:hover {
+            color: rgb(255, 117, 117);
+            background-color: rgba(255, 212, 212, 0.842);
+            transition: all 0.5s ease-in-out;
+          }
+        }
+        .bag {
+          margin-right: 20px;
+        }
+        .wishlist {
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+}

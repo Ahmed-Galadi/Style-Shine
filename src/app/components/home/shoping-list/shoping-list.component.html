@@ -1,8 +1,21 @@
-<div class="container">
-  <ul>
-    <li *ngFor='let product of products'>
-      <img src={{product.img}} alt="product">
-      <span>{{ product.price }}$</span>
-    </li>
-  </ul>
-</div>
+  <section>
+      <ul class="container">
+        <li class="products-list" *ngFor='let product of products'>
+          <img src={{product.img}} alt="product">
+          <div class="price">{{ product.price }}$</div>
+          <div class="description">
+            beautiful {{ product.type}} for {{ product.for}}
+          </div>
+          <div class="list-buttons">
+            <span class="bag">
+              <button><i class="fas fa-shopping-basket"></i></button>
+            </span>
+            <span class="wishlist">
+              <button><i class="far fa-heart"></i></button>
+            </span>
+          </div>
+        </li>
+      </ul>
+  </section>
+
+
