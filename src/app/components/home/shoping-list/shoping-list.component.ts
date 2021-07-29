@@ -10,6 +10,8 @@ import { HomeService } from 'src/app/services/home/home.service';
 export class ShopingListComponent implements OnInit {
 
   products: Product[] = [];
+  activeClass: string = '';
+
 
   constructor(private homeService: HomeService) { }
 
@@ -17,6 +19,5 @@ export class ShopingListComponent implements OnInit {
     this.homeService.findAll()
         .subscribe((data: Product[]) => this.products = data);
   }
-
 
 }
