@@ -1,6 +1,6 @@
   <section>
       <ul class="container">
-        <li class="products-list" *ngFor='let product of products'>
+        <li class="products-list" *ngFor='let product of products; let i = index'>
           <img src={{product.img}} alt="product">
           <div class="price">{{ product.price }}$</div>
           <div class="description">
@@ -8,10 +8,10 @@
           </div>
           <div class="list-buttons">
             <span  class="bag">
-              <button [class]='activeClass'><i class="fas fa-shopping-basket"></i></button>
+              <button [ngClass]="{ 'active': product.inbag }"  ><i class="fas fa-shopping-basket"></i></button>
             </span>
             <span class="wishlist">
-              <button><i class="far fa-heart"></i></button>
+              <button [ngClass]="{ 'active': product.wishlist }" (click)="wishlist(product)"><i class="far fa-heart"></i></button>
             </span>
           </div>
         </li>
