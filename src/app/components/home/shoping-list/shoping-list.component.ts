@@ -10,6 +10,16 @@ import { HomeService } from 'src/app/services/home/home.service';
 export class ShopingListComponent implements OnInit {
 
   products: Product[] = [];
+  product: Product = {
+     id: 0,
+    img: "",
+    for: "",
+    type: "",
+    price: 0,
+    wishlist: false,
+    inbag: false,
+    instock: 0
+  };
 
 
   constructor(private homeService: HomeService) { }
@@ -25,6 +35,13 @@ export class ShopingListComponent implements OnInit {
           product.wishlist = !product.wishlist;
         })
   }
+
+  getProduct(product: Product) {
+    this.homeService.findProduct(product.id)
+        .subscribe((data: Product) => this.product = data);
+  }
+
+
 }
 
 

@@ -24,4 +24,8 @@ export class HomeService {
     return this.http.patch(`${this.url}${id}`, {wishlist: !wishlist})
   }
 
+  findProduct(id: number): Observable<Product> {
+    return this.http.get<Product>(`${this.url}${id}`)
+  }
+
 }
