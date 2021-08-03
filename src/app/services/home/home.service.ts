@@ -8,6 +8,8 @@ import { Product } from 'src/app/interfaces/product';
 })
 export class HomeService {
 
+  public variable!: Product;
+
    url: string = 'http://localhost:3000/products/';
 
   constructor(private http: HttpClient) { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/interfaces/product';
 import { HomeService } from 'src/app/services/home/home.service';
 
@@ -10,19 +11,10 @@ import { HomeService } from 'src/app/services/home/home.service';
 export class ShopingListComponent implements OnInit {
 
   products: Product[] = [];
-  product: Product = {
-     id: 0,
-    img: "",
-    for: "",
-    type: "",
-    price: 0,
-    wishlist: false,
-    inbag: false,
-    instock: 0
-  };
+  product!: Product;
 
 
-  constructor(private homeService: HomeService) { }
+  constructor(private homeService: HomeService, private router: Router) { }
 
   ngOnInit(): void {
     this.homeService.findAll()
@@ -41,7 +33,10 @@ export class ShopingListComponent implements OnInit {
         .subscribe((data: Product) => this.product = data);
   }
 
-
+  goToCard() {
+    this.homeService.variable = this.product;
+    this.router.navigate(["/product-card"]);
+  }
 }
 
 
