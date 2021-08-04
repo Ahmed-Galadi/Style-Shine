@@ -1,8 +1,21 @@
-<div class="container">
+<section class="container">
   <div class="card" >
+
+    <div class='image'>
       <img src={{product.img}} alt="">
-      <span>{{ product.price }}</span>
-      <span class="descrption">A beautiful {{ product.type }} for {{ product.for }}</span>
-      <button>Buy Product</button>
+    </div>
+
+    <div class="product-info">
+      <div class="price">{{ product.price }} $</div>
+      <div class="description">A beautiful {{ product.type }} for {{ product.for }}</div>
+      <div>
+        id: {{ product.id }}
+      </div>
+      <button>
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        Buy Product
+      </button>
+    </div>
+
   </div>
-</div>
+</section>

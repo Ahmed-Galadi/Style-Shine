@@ -9,16 +9,7 @@ import { HomeService } from 'src/app/services/home/home.service';
 })
 export class ProductCardComponent implements OnInit {
 
-  product: Product = {
-     id: 0,
-    img: "",
-    for: "",
-    type: "",
-    price: 0,
-    wishlist: false,
-    inbag: false,
-    instock: 0
-  };
+  product!: Product;
 
   constructor(private homeservice: HomeService) { }
 

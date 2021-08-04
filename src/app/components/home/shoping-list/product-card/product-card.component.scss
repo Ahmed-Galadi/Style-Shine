@@ -1,0 +1,46 @@
+.container {
+  margin: 30px 30px 30px 30px;
+  display: inline-block;
+  .card {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 300px auto;
+
+    .image {
+      img {
+        width: 300px;
+        height: 300px;
+        border-radius: 10px;
+      }
+    }
+    .product-info {
+      margin: 20px 20px 20px 20px;
+      .price {
+        color: yellowgreen;
+        font-weight: 700;
+        font-size: 30px;
+        margin-bottom: 20px;
+      }
+      .description {
+        color: #a9a9a9;
+        font-size: 17px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+      button {
+        font-size: 18px;
+        font-weight: 700;
+        font-family: system-ui;
+        background-color: #f5cf04;
+        padding: 10px;
+        border-radius: 5px;
+        color: #353121b0;
+        &:hover {
+          transform: scale(1.03);
+          box-shadow: 0px 3px 17px 10px silver;
+          transition: all 0.5s ease-out;
+        }
+      }
+    }
+  }
+}
