@@ -17,7 +17,7 @@ export class ShopingListComponent implements OnInit {
   constructor(private homeService: HomeService, private router: Router) { }
 
   ngOnInit(): void {
-    this.homeService.findAll()
+    this.homeService.findAllProducts()
         .subscribe((data: Product[]) => this.products = data);
   }
 
@@ -34,7 +34,7 @@ export class ShopingListComponent implements OnInit {
   }
 
   goToCard() {
-    this.homeService.variable = this.product;
+    this.homeService.sharedProduct = this.product;
     this.router.navigate(["/product-card"]);
   }
 }

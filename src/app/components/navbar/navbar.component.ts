@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -23,7 +24,7 @@ export class NavbarComponent implements OnInit {
   searchInput = '';
   searchActive = false;
 
-  constructor() { }
+  constructor(private router: Router ) { }
 
   ngOnInit(): void {
   }
@@ -78,5 +79,9 @@ export class NavbarComponent implements OnInit {
    } else if (this.searchInput === '') {
      this.searchActive = false;
    }
+  }
+
+  goToCart() {
+    this.router.navigate(["/cart"]);
   }
 }

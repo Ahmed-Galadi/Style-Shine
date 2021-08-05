@@ -11,11 +11,22 @@
       <div>
         id: {{ product.id }}
       </div>
-      <button>
+
+      <button [hidden]="showBuyButton" (click)='buyButton()'>
         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
         Buy Product
       </button>
+
+
+      <span [hidden]="!showBuyButton">
+        <button (click)='minus()'>-</button>
+        <input [(ngModel)]='howMany' type="number">
+        <button (click)='plus()'>+</button>
+      </span>
+
+
     </div>
+
 
   </div>
 </section>

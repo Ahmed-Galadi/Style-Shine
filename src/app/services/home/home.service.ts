@@ -8,26 +8,35 @@ import { Product } from 'src/app/interfaces/product';
 })
 export class HomeService {
 
-  public variable!: Product;
+  public sharedProduct!: Product;
 
-   url: string = 'http://localhost:3000/products/';
+   productsUrl: string = 'http://localhost:3000/products/';
+   CartUrl: string = 'http://localhost:3000/bag/';
 
   constructor(private http: HttpClient) { }
 
-  findAll():Observable<Product[]> {
-    return this.http.get<Product[]>(this.url);
+  findAllProducts():Observable<Product[]> {
+    return this.http.get<Product[]>(this.productsUrl);
   }
 
   buyProduct(id: number, instock: number) {
-    return this.http.patch(`${this.url}${id}`, {inbag: true, instock: instock - 1 })
+    return this.http.patch(`${this.productsUrl}${id}`, {inbag: true, instock: instock - 1 })
   }
 
   addToWishlist(id: number, wishlist: boolean) {
-    return this.http.patch(`${this.url}${id}`, {wishlist: !wishlist})
+    return this.http.patch(`${this.productsUrl}${id}`, {wishlist: !wishlist})
   }
 
   findProduct(id: number): Observable<Product> {
-    return this.http.get<Product>(`${this.url}${id}`)
+    return this.http.get<Product>(`${this.productsUrl}${id}`)
+  }
+
+  findCartProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.CartUrl);
+  }
+
+  addToCart(product: Product) {
+    return this.http.post<Product>(this.CartUrl, product);
   }
 
 }
