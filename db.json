@@ -177,6 +177,28 @@
       "wishlist": false,
       "inbag": false,
       "instock": 10
+    },
+    {
+      "id": 2,
+      "img": "https://www.helpinhearing.co.uk/wp-content/uploads/2019/01/image-placeholder-500x500.jpg",
+      "for": "man",
+      "type": "t-shirt",
+      "price": 10,
+      "howMany": 4,
+      "wishlist": false,
+      "inbag": false,
+      "instock": 10
+    },
+    {
+      "id": 3,
+      "img": "https://www.helpinhearing.co.uk/wp-content/uploads/2019/01/image-placeholder-500x500.jpg",
+      "for": "man",
+      "type": "t-shirt",
+      "price": 10,
+      "howMany": 1,
+      "wishlist": false,
+      "inbag": false,
+      "instock": 10
     }
   ]
 }

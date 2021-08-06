@@ -28,22 +28,22 @@ export class ProductCardComponent implements OnInit {
 
   buyButton(product: Product = this.product) {
     this.addToCart();
-    this.homeservice.howManyCount(product.id, product.howMany)
+    this.homeservice.howManyPlus(product.id, product.howMany)
         .subscribe(() => this.product.howMany += 1);
      this.howMany++;
     this.showBuyButton = !this.showBuyButton;
   }
 
   plus(product: Product = this.product) {
-    this.homeservice.howManyCount(product.id, product.howMany)
-        .subscribe(() => this.product.howMany++);
+    this.homeservice.howManyPlus(product.id, product.howMany)
+        .subscribe(() => this.product.howMany += 1);
 
     this.howMany++;
   }
 
   minus(product: Product = this.product) {
-    this.homeservice.howManyCount(product.id, product.howMany)
-        .subscribe(() => this.product.howMany--);
+    this.homeservice.howManyMinus(product.id, product.howMany)
+        .subscribe(() => this.product.howMany -= 1);
 
     this.howMany--;
         if(this.howMany <= 0) {
