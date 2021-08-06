@@ -4,7 +4,7 @@ export interface Product {
   for: string;
   type: string;
   price: number;
-  howMany?: number;
+  howMany: number;
   wishlist: boolean;
   inbag: boolean;
   instock: number;

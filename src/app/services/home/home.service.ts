@@ -39,4 +39,8 @@ export class HomeService {
     return this.http.post<Product>(this.CartUrl, product);
   }
 
+  howManyCount(id: number, howMany: number) {
+    return this.http.patch(`${this.CartUrl}${id}`, { howMany: howMany + 1})
+  }
+
 }

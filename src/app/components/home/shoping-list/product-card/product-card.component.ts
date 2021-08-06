@@ -11,8 +11,9 @@ export class ProductCardComponent implements OnInit {
 
   product!: Product;
   showBuyButton: boolean = false;
-  howMany: number = 1;
-  cartProduct: Product[] = []
+  howMany: number = 0;
+  cartProduct: Product[] = [];
+
 
   constructor(private homeservice: HomeService) { }
 
@@ -25,16 +26,25 @@ export class ProductCardComponent implements OnInit {
         .subscribe(addedProduct => this.cartProduct.push(addedProduct))
   }
 
-  buyButton() {
-    this.showBuyButton = !this.showBuyButton;
-    this.howMany = 1;
+  buyButton(product: Product = this.product) {
     this.addToCart();
+    this.homeservice.howManyCount(product.id, product.howMany)
+        .subscribe(() => this.product.howMany += 1);
+     this.howMany++;
+    this.showBuyButton = !this.showBuyButton;
   }
 
-  plus() {
+  plus(product: Product = this.product) {
+    this.homeservice.howManyCount(product.id, product.howMany)
+        .subscribe(() => this.product.howMany++);
+
     this.howMany++;
   }
-  minus() {
+
+  minus(product: Product = this.product) {
+    this.homeservice.howManyCount(product.id, product.howMany)
+        .subscribe(() => this.product.howMany--);
+
     this.howMany--;
         if(this.howMany <= 0) {
       this.showBuyButton = false;

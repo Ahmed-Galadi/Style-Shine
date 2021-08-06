@@ -6,6 +6,7 @@
       "for": "man",
       "type": "t-shirt",
       "price": 10,
+      "howMany": 0,
       "wishlist": false,
       "inbag": false,
       "instock": 10
@@ -16,6 +17,7 @@
       "for": "man",
       "type": "t-shirt",
       "price": 10,
+      "howMany": 0,
       "wishlist": false,
       "inbag": false,
       "instock": 10
@@ -26,6 +28,7 @@
       "for": "man",
       "type": "t-shirt",
       "price": 10,
+      "howMany": 0,
       "wishlist": false,
       "inbag": false,
       "instock": 10
@@ -36,6 +39,7 @@
       "for": "man",
       "type": "t-shirt",
       "price": 10,
+      "howMany": 0,
       "wishlist": false,
       "inbag": false,
       "instock": 10
@@ -46,6 +50,7 @@
       "for": "man",
       "type": "t-shirt",
       "price": 10,
+      "howMany": 0,
       "wishlist": false,
       "inbag": false,
       "instock": 10
@@ -56,6 +61,7 @@
       "for": "man",
       "type": "t-shirt",
       "price": 10,
+      "howMany": 0,
       "wishlist": false,
       "inbag": false,
       "instock": 10
@@ -66,6 +72,7 @@
       "for": "man",
       "type": "t-shirt",
       "price": 10,
+      "howMany": 0,
       "wishlist": false,
       "inbag": false,
       "instock": 10
@@ -76,6 +83,7 @@
       "for": "man",
       "type": "t-shirt",
       "price": 10,
+      "howMany": 0,
       "wishlist": false,
       "inbag": false,
       "instock": 10
@@ -86,6 +94,7 @@
       "for": "man",
       "type": "t-shirt",
       "price": 10,
+      "howMany": 0,
       "wishlist": false,
       "inbag": false,
       "instock": 10
@@ -96,6 +105,7 @@
       "for": "man",
       "type": "t-shirt",
       "price": 10,
+      "howMany": 0,
       "wishlist": false,
       "inbag": false,
       "instock": 10
@@ -106,6 +116,7 @@
       "for": "man",
       "type": "t-shirt",
       "price": 10,
+      "howMany": 0,
       "wishlist": false,
       "inbag": false,
       "instock": 10
@@ -116,6 +127,7 @@
       "for": "man",
       "type": "t-shirt",
       "price": 10,
+      "howMany": 0,
       "wishlist": false,
       "inbag": false,
       "instock": 10
@@ -126,6 +138,7 @@
       "for": "man",
       "type": "t-shirt",
       "price": 10,
+      "howMany": 0,
       "wishlist": false,
       "inbag": false,
       "instock": 10
@@ -136,6 +149,7 @@
       "for": "man",
       "type": "t-shirt",
       "price": 10,
+      "howMany": 0,
       "wishlist": false,
       "inbag": false,
       "instock": 10
@@ -146,6 +160,7 @@
       "for": "man",
       "type": "t-shirt",
       "price": 10,
+      "howMany": 0,
       "wishlist": false,
       "inbag": false,
       "instock": 10
@@ -153,41 +168,12 @@
   ],
   "bag": [
     {
-      "id": 15,
+      "id": 1,
       "img": "https://www.helpinhearing.co.uk/wp-content/uploads/2019/01/image-placeholder-500x500.jpg",
       "for": "man",
       "type": "t-shirt",
       "price": 10,
-      "wishlist": false,
-      "inbag": false,
-      "instock": 10
-    },
-    {
-      "id": 4,
-      "img": "https://www.helpinhearing.co.uk/wp-content/uploads/2019/01/image-placeholder-500x500.jpg",
-      "for": "man",
-      "type": "t-shirt",
-      "price": 10,
-      "wishlist": false,
-      "inbag": false,
-      "instock": 10
-    },
-    {
-      "id": 8,
-      "img": "https://www.helpinhearing.co.uk/wp-content/uploads/2019/01/image-placeholder-500x500.jpg",
-      "for": "man",
-      "type": "t-shirt",
-      "price": 10,
-      "wishlist": false,
-      "inbag": false,
-      "instock": 10
-    },
-    {
-      "id": 6,
-      "img": "https://www.helpinhearing.co.uk/wp-content/uploads/2019/01/image-placeholder-500x500.jpg",
-      "for": "man",
-      "type": "t-shirt",
-      "price": 10,
+      "howMany": 7,
       "wishlist": false,
       "inbag": false,
       "instock": 10
