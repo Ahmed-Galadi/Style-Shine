@@ -1,3 +1,18 @@
 <ul>
-  <li *ngFor='let product of inCartProducts'>{{product.id}}</li>
+  <li *ngFor='let product of inCartProducts'>
+    <div>
+      <img src={{product.img}} alt="">
+    </div>
+    <div>
+      <span>{{product.price}}</span>
+      <span>beautiful {{product.type}} for {{product.for}}</span>
+    </div>
+    <div>
+      <button>x</button>
+    </div>
+  </li>
+  <div>
+    <button (click)='calculate()'>total</button>
+    total: {{ finalCount }}
+  </div>
 </ul>
