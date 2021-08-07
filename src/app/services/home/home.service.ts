@@ -11,7 +11,6 @@ export class HomeService {
   public sharedProduct!: Product;
 
    productsUrl: string = 'http://localhost:3000/products/';
-   CartUrl: string = 'http://localhost:3000/bag/';
 
   constructor(private http: HttpClient) { }
 
@@ -29,22 +28,6 @@ export class HomeService {
 
   findProduct(id: number): Observable<Product> {
     return this.http.get<Product>(`${this.productsUrl}${id}`)
-  }
-
-  findCartProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.CartUrl);
-  }
-
-  addToCart(product: Product) {
-    return this.http.post<Product>(this.CartUrl, product);
-  }
-
-  howManyPlus(id: number, howMany: number) {
-    return this.http.patch(`${this.CartUrl}${id}`, { howMany: howMany + 1})
-  }
-
-  howManyMinus(id: number, howMany: number) {
-    return this.http.patch(`${this.CartUrl}${id}`, { howMany: howMany - 1})
   }
 
 }

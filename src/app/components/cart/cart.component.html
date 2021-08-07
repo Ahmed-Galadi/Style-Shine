@@ -8,11 +8,10 @@
       <span>beautiful {{product.type}} for {{product.for}}</span>
     </div>
     <div>
-      <button>x</button>
+      <button (click)='removeProduct(product.id)'>x</button>
     </div>
   </li>
   <div>
-    <button (click)='calculate()'>total</button>
     total: {{ finalCount }}
   </div>
 </ul>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/interfaces/product';
-import { HomeService } from 'src/app/services/home/home.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -9,26 +9,38 @@ import { HomeService } from 'src/app/services/home/home.service';
 })
 export class CartComponent implements OnInit {
 
+  stop: boolean = false;
   inCartProducts: Product[] = [];
   finalCount: number = 0;
 
-  constructor(private homeservice: HomeService) {}
+  constructor(private cartservice: CartService) {}
 
 
   ngOnInit(): void {
-    this.homeservice.findCartProducts()
+    this.cartservice.findCartProducts()
         .subscribe((data: Product[]) => this.inCartProducts = data);
+    this.cartservice.findCartProducts().subscribe((data: Product[]) => {
+      for(let product of data) {
+        this.finalCount += product.price * product.howMany;
+      }
+    })
   }
 
-    calculate() {
+
+  removeProduct(id: number | any): void {
+    this.cartservice.deleteCartProducts(id)
+        .subscribe(() => {
+          this.inCartProducts = this.inCartProducts.filter( product => product.id !== id )});
+    this.producDeleted(id);
+
+  }
+
+  producDeleted(id: number | any) {
     for(let product of this.inCartProducts) {
-      let count = 0;
-
-      count += product.price * product.howMany ;
-
-      this.finalCount += count;
+      if(product.id === id) {
+        this.finalCount -= product.price * product.howMany;
+      }
     }
-
   }
 
 
