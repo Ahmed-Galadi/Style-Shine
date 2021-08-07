@@ -1,17 +1,23 @@
 <ul>
-  <li *ngFor='let product of inCartProducts'>
+  <li class="cart-products" *ngFor='let product of inCartProducts'>
+
     <div>
       <img src={{product.img}} alt="">
     </div>
-    <div>
-      <span>{{product.price}}</span>
-      <span>beautiful {{product.type}} for {{product.for}}</span>
+
+    <div class="product-info">
+      <div class="price">{{product.price}}$</div>
+      <div class="description">beautiful {{product.type}} for {{product.for}}</div>
     </div>
+
+    <div>{{ product.howMany}}</div>
+
     <div>
-      <button (click)='removeProduct(product.id)'>x</button>
+      <button class="delete-button" (click)='removeProduct(product.id)'><i class="fas fa-trash"></i></button>
     </div>
+
   </li>
   <div>
-    total: {{ finalCount }}
+    total: {{ finalCount }}$
   </div>
 </ul>
