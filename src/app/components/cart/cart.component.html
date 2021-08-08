@@ -1,23 +1,38 @@
-<ul>
-  <li class="cart-products" *ngFor='let product of inCartProducts'>
+<div [hidden]='!hide' class="container">
+
+  <ul>
+    <li class="cart-products" *ngFor='let product of inCartProducts'>
 
     <div>
       <img src={{product.img}} alt="">
     </div>
 
-    <div class="product-info">
-      <div class="price">{{product.price}}$</div>
-      <div class="description">beautiful {{product.type}} for {{product.for}}</div>
-    </div>
 
-    <div>{{ product.howMany}}</div>
+    <div class="description">beautiful {{product.type}} for {{product.for}}</div>
 
-    <div>
-      <button class="delete-button" (click)='removeProduct(product.id)'><i class="fas fa-trash"></i></button>
+    <div class="price">{{product.price}}$</div>
+
+    <div class="howmany">x{{ product.howMany}}</div>
+
+
+    <div class="delete-button">
+      <button  (click)='removeProduct(product.id)'><i class="fas fa-trash"></i></button>
     </div>
 
   </li>
-  <div>
-    total: {{ finalCount }}$
+  <div class="total">
+    All: <span>{{ finalCount }}$ </span> <button>Confirm<i class="far fa-credit-card"></i></button>
   </div>
 </ul>
+
+</div>
+
+<div [hidden]='hide' class="empty-cart">
+  <h1>
+    Cart List Is Empty
+  </h1>
+  <p>
+    No Product Is Added !
+  </p>
+
+</div>

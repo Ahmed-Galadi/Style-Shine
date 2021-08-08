@@ -9,7 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  stop: boolean = false;
+  hide: boolean = true;
   inCartProducts: Product[] = [];
   finalCount: number = 0;
 
@@ -21,18 +21,7 @@ export class CartComponent implements OnInit {
         .subscribe((data: Product[]) => this.inCartProducts = data);
     this.cartservice.findCartProducts().subscribe((data: Product[]) => {
       for(let product of data) {
-        this.finalCount += product.price * product.howMany;
-      }
-    })
-  }
-
-
-  removeProduct(id: number | any): void {
-    this.cartservice.deleteCartProducts(id)
-        .subscribe(() => {
-          this.inCartProducts = this.inCartProducts.filter( product => product.id !== id )});
-    this.producDeleted(id);
-
+        this.finalCount += product.price * product.howMany }});
   }
 
   producDeleted(id: number | any) {
@@ -42,6 +31,25 @@ export class CartComponent implements OnInit {
       }
     }
   }
+
+  epmtyList() {
+    if(this.finalCount === 0) {
+      this.hide = false;
+    } else {
+      this.hide = true;
+    }
+  }
+
+
+  removeProduct(id: number | any): void {
+    this.cartservice.deleteCartProducts(id)
+        .subscribe(() => {
+          this.inCartProducts = this.inCartProducts.filter( product => product.id !== id )});
+    this.producDeleted(id);
+    this.epmtyList();
+  }
+
+
 
 
 

@@ -6,11 +6,11 @@
 
   <span class="buttons1">
 
-    <button (mouseover)='mouseOnMan()'  class="men">MEN</button>
-    <button (mouseover)='mouseOnWoman()' class="women">WOMEN</button>
-    <button (mouseover)='mouseOnKids()'  class="kids">KIDS</button>
-    <button (mouseover)='mouseOnDecorations()'  class="decorations">DECORATIONS</button>
-    <button (mouseover)='mouseOnBeauty()' class="beauty">BEAUTY</button>
+    <button (click)='mouseOnMan()'  class="men">MEN</button>
+    <button (click)='mouseOnWoman()' class="women">WOMEN</button>
+    <button (click)='mouseOnKids()'  class="kids">KIDS</button>
+    <button (click)='mouseOnDecorations()'  class="decorations">DECORATIONS</button>
+    <button (click)='mouseOnBeauty()' class="beauty">BEAUTY</button>
 
     <ul [hidden]='isHidden' class="shopingList"  (mouseleave)='onMouseOut()'>
       <span [ngClass]='listClass'>{{ listType }}</span>
