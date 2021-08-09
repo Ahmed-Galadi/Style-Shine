@@ -22,6 +22,7 @@ export class CartComponent implements OnInit {
     this.cartservice.findCartProducts().subscribe((data: Product[]) => {
       for(let product of data) {
         this.finalCount += product.price * product.howMany }});
+     this.epmtyList();
   }
 
   producDeleted(id: number | any) {
@@ -33,23 +34,34 @@ export class CartComponent implements OnInit {
   }
 
   epmtyList() {
-    if(this.finalCount === 0) {
-      this.hide = false;
-    } else {
-      this.hide = true;
-    }
+    setTimeout(() => {
+      if(this.finalCount === 0) {
+        this.hide = false;
+      } else {
+        this.hide = true;
+      }
+
+    }, 600);
   }
 
 
   removeProduct(id: number | any): void {
     this.cartservice.deleteCartProducts(id)
         .subscribe(() => {
-          this.inCartProducts = this.inCartProducts.filter( product => product.id !== id )});
+          this.inCartProducts = this.inCartProducts.filter( product => product.id !== id );});
     this.producDeleted(id);
     this.epmtyList();
   }
 
+ minus(product: Product) {
+   this.cartservice.howManyMinus(product.id, product.howMany)
+       .subscribe(() => product.howMany -= 1);
+ }
 
+ plus(product: Product) {
+   this.cartservice.howManyPlus(product.id, product.howMany)
+       .subscribe(() => product.howMany += 1);
+ }
 
 
 

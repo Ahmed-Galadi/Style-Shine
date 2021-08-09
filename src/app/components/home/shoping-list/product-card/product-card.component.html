@@ -12,16 +12,16 @@
         id: {{ product.id }}
       </div>
 
-      <button [hidden]="showBuyButton" (click)='buyButton(product)'>
+      <button [hidden]="showBuyButton" (click)='buyButton()'>
         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
         Buy Product
       </button>
 
 
       <span [hidden]="!showBuyButton">
-        <button (click)='minus(product)'>-</button>
-        <input [(ngModel)]='howMany' type="number">
-        <button (click)='plus(product)'>+</button>
+        <button (click)='minus()'>-</button>
+        <input [(ngModel)]='howManyInput' type="number">
+        <button (click)='plus()'>+</button>
       </span>
 
 

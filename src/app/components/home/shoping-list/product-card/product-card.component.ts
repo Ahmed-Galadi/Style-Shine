@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/interfaces/product';
 import { CartService } from 'src/app/services/cart.service';
 import { HomeService } from 'src/app/services/home/home.service';
@@ -10,47 +11,82 @@ import { HomeService } from 'src/app/services/home/home.service';
 })
 export class ProductCardComponent implements OnInit {
 
-  product!: Product;
+  blankProduct: Product = {
+    id: 0,
+    img: "",
+    for: "",
+    type: "",
+    price: 0,
+    howMany: 0,
+    wishlist: false,
+    inbag: false,
+    instock: 10
+  }
+
+  product: Product = this.blankProduct;
   showBuyButton: boolean = false;
-  howMany: number = 0;
+  howManyInput: number = this.product.howMany;
   cartProduct: Product[] = [];
 
 
-  constructor(private homeservice: HomeService, private cartservice: CartService) { }
+  constructor(private homeservice: HomeService,
+              private cartservice: CartService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.product = this.homeservice.sharedProduct;
+    this.takeToHome();
+    if(this.product.howMany > 0) {
+      this.showBuyButton = true;
+    }
   }
 
-  addToCart(product: Product = this.product) {
-    this.cartservice.addToCart(product)
-        .subscribe(addedProduct => this.cartProduct.push(addedProduct))
+  takeToHome() {
+    setTimeout(() => {
+      if(this.cartProduct === []) {
+        this.router.navigate(["/"]);
+      }
+
+    }, 500);
   }
 
-  buyButton(product: Product = this.product) {
+  addToCart() {
+    this.cartservice.addToCart(this.product)
+        .subscribe(addedProduct => this.cartProduct.push(addedProduct));
+    this.howManyInput = this.product.howMany;
+  }
+
+  buyButton() {
     this.addToCart();
-    this.cartservice.howManyPlus(product.id, product.howMany)
+    this.cartservice.howManyPlus(this.product.id, this.product.howMany)
         .subscribe(() => this.product.howMany += 1);
-     this.howMany++;
+    if(this.product.howMany === 0) {
+      this.howManyInput++;
+    }
+
     this.showBuyButton = !this.showBuyButton;
   }
 
-  plus(product: Product = this.product) {
-    this.cartservice.howManyPlus(product.id, product.howMany)
+  plus() {
+    this.cartservice.howManyPlus(this.product.id, this.product.howMany)
         .subscribe(() => this.product.howMany += 1);
 
-    this.howMany++;
+    this.howManyInput++;
   }
 
-  minus(product: Product = this.product) {
-    this.cartservice.howManyMinus(product.id, product.howMany)
+  minus() {
+    this.cartservice.howManyMinus(this.product.id, this.product.howMany)
         .subscribe(() => this.product.howMany -= 1);
-
-    this.howMany--;
-        if(this.howMany <= 0) {
+    this.howManyInput--;
+        if(this.howManyInput <= 0) {
       this.showBuyButton = false;
+      this.cartservice.deleteCartProducts(this.product.id)
+        .subscribe(() => {
+        this.cartProduct = this.cartProduct.filter(product => product.id !== this.product.id );})
     } else {
       this.showBuyButton = true;
     };
+
+
   }
 }

@@ -12,7 +12,7 @@
 
     <div class="price">{{product.price}}$</div>
 
-    <div class="howmany">x{{ product.howMany}}</div>
+    <div class="howmany"><button (click)='minus(product)' >(-)</button>  x{{ product.howMany}} <button (click)='plus(product)'>(+)</button></div>
 
 
     <div class="delete-button">
