@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/interfaces/product';
 import { CartService } from 'src/app/services/cart.service';
-import { HomeService } from 'src/app/services/home/home.service';
+import { HomeService } from 'src/app/services/home.service';
 
 @Component({
   selector: 'app-product-card',
@@ -35,20 +35,9 @@ export class ProductCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.product = this.homeservice.sharedProduct;
-    this.takeToHome();
-    if(this.product.howMany > 0) {
-      this.showBuyButton = true;
-    }
   }
 
-  takeToHome() {
-    setTimeout(() => {
-      if(this.cartProduct === []) {
-        this.router.navigate(["/"]);
-      }
 
-    }, 500);
-  }
 
   addToCart() {
     this.cartservice.addToCart(this.product)

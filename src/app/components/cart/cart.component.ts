@@ -35,7 +35,7 @@ export class CartComponent implements OnInit {
 
   epmtyList() {
     setTimeout(() => {
-      if(this.finalCount === 0) {
+      if(this.finalCount <= 0) {
         this.hide = false;
       } else {
         this.hide = true;
@@ -56,11 +56,23 @@ export class CartComponent implements OnInit {
  minus(product: Product) {
    this.cartservice.howManyMinus(product.id, product.howMany)
        .subscribe(() => product.howMany -= 1);
+
+       if(this.finalCount > 0) {
+          this.finalCount -= product.price;
+       }
+
+       setTimeout(() => {
+         if( product.howMany <= 0 ) {
+           this.removeProduct(product.id);
+         }
+       }, 300);
  }
 
  plus(product: Product) {
-   this.cartservice.howManyPlus(product.id, product.howMany)
+    this.cartservice.howManyPlus(product.id, product.howMany)
        .subscribe(() => product.howMany += 1);
+
+    this.finalCount += product.price;
  }
 
 

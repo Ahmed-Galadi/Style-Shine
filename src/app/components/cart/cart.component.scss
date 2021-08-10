@@ -38,9 +38,25 @@ $padding: 50px;
 
     .howmany {
       padding-top: $padding;
-      color: rgb(255, 80, 80);
+      color: #ff5050;
       font-size: 20px;
       font-weight: 600;
+      button {
+        &:hover {
+          transform: scale(0.9);
+          transition: all 0.4s ease-in-out;
+        }
+      }
+      .minus {
+        margin-right: 10px;
+        color: #ff8383;
+        font-size: 20px;
+      }
+      .plus {
+        margin-left: 10px;
+        color: #80da80;
+        font-size: 20px;
+      }
     }
 
     .delete-button {
