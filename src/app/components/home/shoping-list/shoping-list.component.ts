@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/interfaces/product';
 import { HomeService } from 'src/app/services/home.service';
+import { ProductInfoService } from 'src/app/services/product-info.service';
 
 @Component({
   selector: 'app-shoping-list',
@@ -11,10 +12,12 @@ import { HomeService } from 'src/app/services/home.service';
 export class ShopingListComponent implements OnInit {
 
   products: Product[] = [];
-  product!: Product;
+  selectedProduct!: Product;
 
 
-  constructor(private homeService: HomeService, private router: Router) { }
+  constructor(private homeService: HomeService,
+              private productinfo: ProductInfoService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.homeService.findAllProducts()
@@ -28,14 +31,15 @@ export class ShopingListComponent implements OnInit {
         })
   }
 
+
+
   getProduct(product: Product) {
-    this.homeService.findProduct(product.id)
-        .subscribe((data: Product) => this.product = data);
+    this.selectedProduct = product;
   }
 
-  goToCard() {
-    this.homeService.sharedProduct = this.product;
-    this.router.navigate(["/product-card"]);
+  sendToProductInfo() {
+    this.productinfo.addToProductInfo(this.selectedProduct)
+        .subscribe()
   }
 }
 

@@ -11,8 +11,8 @@ import { HomeComponent } from './components/home/home.component';
 import { CarouselComponent } from './components/home/carousel/carousel.component';
 import { ShopingListComponent } from './components/home/shoping-list/shoping-list.component';
 import { HomeService } from './services/home.service';
-import { ProductCardComponent } from './components/home/shoping-list/product-card/product-card.component';
 import { CartComponent } from './components/cart/cart.component';
+import { ProductInfoComponent } from './components/product-info/product-info.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +22,8 @@ import { CartComponent } from './components/cart/cart.component';
     HomeComponent,
     CarouselComponent,
     ShopingListComponent,
-    ProductCardComponent,
-    CartComponent
+    CartComponent,
+    ProductInfoComponent
   ],
   imports: [
     BrowserModule,
