@@ -56,20 +56,17 @@ export class ProductInfoComponent implements OnInit {
 
   minus(product: Product) {
 
-    if (this.howmanyInput <= 1) {
+    if (product.howMany <= 1) {
       this.cartservice.deleteCartProducts(product.id)
         .subscribe(() => this.howmanyInput -= 1);
-      };
-
-      this.cartservice.howManyMinus(product.id, product.howMany)
-          .subscribe(() => product.howMany -= 1);
-
-      this.howmanyInput = 0
+      } else {
+        this.cartservice.howManyMinus(product.id, product.howMany)
+            .subscribe(() => product.howMany -= 1);
+      }
   }
 
   inputHowmany(product: Product) {
     this.cartservice.inputHowmany(product.id, product.howMany)
-        .subscribe();
-    product.howMany = this.howmanyInput
+        .subscribe(() => product.howMany = this.howmanyInput);
   }
 }
