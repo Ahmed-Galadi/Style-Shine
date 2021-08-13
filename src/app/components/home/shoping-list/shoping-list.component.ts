@@ -12,7 +12,7 @@ import { ProductInfoService } from 'src/app/services/product-info.service';
 export class ShopingListComponent implements OnInit {
 
   products: Product[] = [];
-  selectedProduct!: Product;
+  selectedProductId!: number;
 
 
   constructor(private homeService: HomeService,
@@ -21,7 +21,9 @@ export class ShopingListComponent implements OnInit {
 
   ngOnInit(): void {
     this.homeService.findAllProducts()
-        .subscribe((data: Product[]) => this.products = data);
+        .subscribe((data: Product[]) => {
+          this.products = data;
+        })
   }
 
   wishlist(product: Product) {
@@ -31,15 +33,15 @@ export class ShopingListComponent implements OnInit {
         })
   }
 
-
-
   getProduct(product: Product) {
-    this.selectedProduct = product;
+    this.selectedProductId = product.id;
   }
 
   sendToProductInfo() {
-    this.productinfo.addToProductInfo(this.selectedProduct)
-        .subscribe()
+    this.productinfo.productId = this.selectedProductId;
+    setTimeout(() => {
+      this.router.navigate(['/product-info']);
+    }, 500);
   }
 }
 

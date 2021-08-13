@@ -166,6 +166,17 @@
       "instock": 10
     }
   ],
-  "product-info": [],
-  "bag": []
+  "bag": [
+    {
+      "id": 5,
+      "img": "https://www.helpinhearing.co.uk/wp-content/uploads/2019/01/image-placeholder-500x500.jpg",
+      "for": "man",
+      "type": "t-shirt",
+      "price": 10,
+      "howMany": 4,
+      "wishlist": false,
+      "inbag": false,
+      "instock": 10
+    }
+  ]
 }

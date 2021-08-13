@@ -12,7 +12,7 @@ export class CartService {
 
   constructor(private http: HttpClient) { }
 
-    findCartProducts(): Observable<Product[]> {
+  findCartProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.CartUrl)
   }
 

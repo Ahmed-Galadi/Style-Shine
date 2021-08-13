@@ -1,1 +1,11 @@
-<p>product-info works!</p>
+
+<div><img src= {{sharedProduct.img}} alt= {{sharedProduct.id}}></div>
+<div>{{ sharedProduct.price }}$</div>
+<div>beautiful {{ sharedProduct.type }} for {{ sharedProduct.for }}</div>
+
+<button (click)='onAddToCard(sharedProduct)'>Add To Cart</button>
+<div>
+  <button (click)='plus()'>+</button>
+</div>
+<input [(ngModel)]="howmanyInput"  type="text">
+<button>-</button>

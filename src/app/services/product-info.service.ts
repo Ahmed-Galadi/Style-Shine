@@ -8,15 +8,13 @@ import { Product } from '../interfaces/product';
 })
 export class ProductInfoService {
 
-  productInfoUrl: string = "http://localhost:3000/product-info/";
+  productInfoUrl: string = "http://localhost:3000/products/";
+  productId!: number;
 
   constructor(private http: HttpClient) { }
 
-  getProductInfo(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.productInfoUrl);
+  getProductInfo(): Observable<Product> {
+    return this.http.get<Product>(`${this.productInfoUrl}${this.productId}`);
   }
 
-  addToProductInfo(product: Product) {
-    return this.http.put(`${this.productInfoUrl}${product.id}`, product);
-  }
 }
