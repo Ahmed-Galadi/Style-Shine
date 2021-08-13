@@ -5,7 +5,7 @@
 
 <button (click)='onAddToCard(sharedProduct)'>Add To Cart</button>
 <div>
-  <button (click)='plus()'>+</button>
+  <button (click)='plus(sharedProduct)'>+</button>
 </div>
-<input [(ngModel)]="howmanyInput"  type="text">
-<button>-</button>
+<input [(ngModel)]="howmanyInput" [value]="sharedProduct.howMany" (keyup)='inputHowmany(sharedProduct)'  type="number">
+<button (click)="minus(sharedProduct)" >-</button>

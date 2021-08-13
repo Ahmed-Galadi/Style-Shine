@@ -28,6 +28,10 @@ export class CartService {
     return this.http.patch(`${this.CartUrl}${id}`, { howMany: howMany - 1})
   }
 
+  inputHowmany(id: number, howMany: number) {
+    return this.http.patch(`${this.CartUrl}${id}`, {howMany: howMany});
+  }
+
   deleteCartProducts(id: number | any): Observable<{}> {
     return this.http.delete(`${this.CartUrl}${id}`);
   }

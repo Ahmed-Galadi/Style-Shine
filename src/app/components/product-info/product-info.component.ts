@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/interfaces/product';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductInfoService } from 'src/app/services/product-info.service';
@@ -27,24 +28,48 @@ export class ProductInfoComponent implements OnInit {
   howmanyInput: number = 0;
 
   constructor(private productinfo: ProductInfoService,
-              private cartservice: CartService) { }
+              private cartservice: CartService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.productinfo.getProductInfo()
         .subscribe((data: Product) => {
           this.sharedProduct = data;
-        })
+        });
+    setTimeout(() => {
+      if(this.sharedProduct === this.blankProduct) {
+        this.router.navigate(['/']);
+      }
+    }, 500);
   }
 
   onAddToCard(product: Product) {
     this.cartservice.addToCart(product)
+        .subscribe(() => this.howmanyInput += 1);
+    this.plus(product);
+  }
+
+  plus(product: Product) {
+    this.cartservice.howManyPlus(product.id, product.howMany)
+        .subscribe(() => product.howMany += 1);
+  }
+
+  minus(product: Product) {
+
+    if (this.howmanyInput <= 1) {
+      this.cartservice.deleteCartProducts(product.id)
+        .subscribe(() => this.howmanyInput -= 1);
+      };
+
+      this.cartservice.howManyMinus(product.id, product.howMany)
+          .subscribe(() => product.howMany -= 1);
+
+      this.howmanyInput = 0
+  }
+
+  inputHowmany(product: Product) {
+    this.cartservice.inputHowmany(product.id, product.howMany)
         .subscribe();
-    this.howmanyInput = this.sharedProduct.howMany;
+    product.howMany = this.howmanyInput
   }
-
-  plus() {
-    this.cartservice.howManyPlus(this.sharedProduct.id, this.sharedProduct.howMany)
-        .subscribe(() => this.sharedProduct.howMany += 1);
-  }
-
 }
