@@ -11,7 +11,7 @@ import { ProductInfoService } from 'src/app/services/product-info.service';
 })
 export class ProductInfoComponent implements OnInit {
 
-
+  toggleAddToCart: boolean = false;
   blankProduct: Product = {
       "id": 0,
       "img": "",
@@ -55,7 +55,6 @@ export class ProductInfoComponent implements OnInit {
   }
 
   minus(product: Product) {
-
     if (product.howMany <= 1) {
       this.cartservice.deleteCartProducts(product.id)
         .subscribe(() => this.howmanyInput -= 1);

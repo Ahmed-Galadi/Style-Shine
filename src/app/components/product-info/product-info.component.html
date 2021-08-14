@@ -1,11 +1,36 @@
+<section class="container">
 
-<div><img src= {{sharedProduct.img}} alt= {{sharedProduct.id}}></div>
-<div>{{ sharedProduct.price }}$</div>
-<div>beautiful {{ sharedProduct.type }} for {{ sharedProduct.for }}</div>
+  <div class="product-img">
+    <img src= {{sharedProduct.img}} alt= {{sharedProduct.id}}>
+  </div>
 
-<button (click)='onAddToCard(sharedProduct)'>Add To Cart</button>
-<div>
-  <button (click)='plus(sharedProduct)'>+</button>
-</div>
-<input [(ngModel)]="howmanyInput" [value]="sharedProduct.howMany" (keyup)='inputHowmany(sharedProduct)'  type="number">
-<button (click)="minus(sharedProduct)" >-</button>
+  <div class="product-info">
+
+    <div class="product-price">{{ sharedProduct.price }}$</div>
+
+    <div class="product-description">beautiful {{ sharedProduct.type }} for {{ sharedProduct.for }}</div>
+
+    <div class="buttons">
+
+      <button [hidden]="toggleAddToCart" class="addtocart-button" (click)='onAddToCard(sharedProduct)'>
+        <i class="fa fa-cart-plus" aria-hidden="true"></i>
+        Add To Cart
+      </button>
+
+      <div [hidden]="!toggleAddToCart">
+        <button class="minus-button" (click)="minus(sharedProduct)" >-</button>
+        <input class="howmany-input"
+        [(ngModel)]="howmanyInput"
+        [value]="sharedProduct.howMany"
+        (keyup)='inputHowmany(sharedProduct)'
+        type="number">
+        <button class="plus-button" (click)='plus(sharedProduct)'>+</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<app-shoping-list></app-shoping-list>

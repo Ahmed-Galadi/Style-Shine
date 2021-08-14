@@ -1,0 +1,49 @@
+.container {
+  display: grid;
+  grid-template-columns: 335px auto;
+  .product-img {
+    img {
+      height: 250px;
+      width: 250px;
+      margin: 40px 40px 40px 40px;
+      border-radius: 20px;
+    }
+  }
+  .product-info {
+    margin-top: 80px;
+    .product-price {
+      font-family: "Inter";
+      font-size: 25px;
+      font-weight: 600;
+      color: #23bf23;
+    }
+    .product-description {
+      font-size: 20px;
+      font-family: system-ui;
+      font-weight: 500;
+      color: #828282;
+    }
+    .buttons {
+      margin-top: 50px;
+      button {
+        font-size: 20px;
+        background-color: #f3d118;
+        padding: 10px 10px;
+        border-radius: 5px;
+        color: #464230;
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: 0px 3px 17px 10px silver;
+          transition: all 0.5s ease-out;
+        }
+      }
+      .howmany-input {
+        height: 35px;
+        width: 40px;
+        text-align: center;
+        margin-left: 17px;
+        margin-right: 17px;
+      }
+    }
+  }
+}
