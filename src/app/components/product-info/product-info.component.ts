@@ -47,6 +47,7 @@ export class ProductInfoComponent implements OnInit {
     this.cartservice.addToCart(product)
         .subscribe(() => this.howmanyInput += 1);
     this.plus(product);
+    this.toggleAddToCart = true;
   }
 
   plus(product: Product) {
@@ -58,6 +59,7 @@ export class ProductInfoComponent implements OnInit {
     if (product.howMany <= 1) {
       this.cartservice.deleteCartProducts(product.id)
         .subscribe(() => this.howmanyInput -= 1);
+      this.toggleAddToCart = false;
       } else {
         this.cartservice.howManyMinus(product.id, product.howMany)
             .subscribe(() => product.howMany -= 1);
@@ -67,5 +69,8 @@ export class ProductInfoComponent implements OnInit {
   inputHowmany(product: Product) {
     this.cartservice.inputHowmany(product.id, product.howMany)
         .subscribe(() => product.howMany = this.howmanyInput);
+    if(this.howmanyInput = 0) {
+      this.toggleAddToCart = false;
+    }
   }
 }
