@@ -32,7 +32,7 @@ export class ProductInfoComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-    this.productinfo.getProductInfo()
+     this.productinfo.getProductInfo()
         .subscribe((data: Product) => {
           this.sharedProduct = data;
         });
@@ -69,8 +69,5 @@ export class ProductInfoComponent implements OnInit {
   inputHowmany(product: Product) {
     this.cartservice.inputHowmany(product.id, product.howMany)
         .subscribe(() => product.howMany = this.howmanyInput);
-    if(this.howmanyInput = 0) {
-      this.toggleAddToCart = false;
-    }
   }
 }
